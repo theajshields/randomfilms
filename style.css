@@ -24,9 +24,9 @@ body {
 }
 
 #logoplane {
-  pointer-events: none
+  position: absolute;
   transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
-  opacity: 1
+  pointer-events: none;
 }
 
 #container {

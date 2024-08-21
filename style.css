@@ -31,14 +31,17 @@ body {
 }
 
 #container {
-  width: 80vw; /* Adjust width as needed */
-  height: 80vw; /* Adjust height to maintain aspect ratio */
-  aspect-ratio: 1; /* Ensure the container maintains a square aspect ratio */
+  width: 100vw; /* Take up full viewport width */
+  height: 100vh; /* Take up full viewport height */
+  aspect-ratio: 1; /* Maintain a square aspect ratio */
   display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(0, 1fr));
   position: absolute;
+  top: 0;
+  left: 0;
   transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 #container:after,
@@ -66,6 +69,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: background-color 1500ms;
   background-color: transparent; /* Ensure the background is transparent initially */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .tile:hover,

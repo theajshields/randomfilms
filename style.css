@@ -23,6 +23,10 @@ body {
   padding: 0;
 }
 
+#logoplane {
+  pointer-events: none
+}
+
 #container {
   width: 140rem;
   aspect-ratio: 1;

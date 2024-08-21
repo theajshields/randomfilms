@@ -31,19 +31,20 @@ body {
 }
 
 #container {
-  width: 80vw; /* Adjust as needed */
+  width: 140rem;
   aspect-ratio: 1;
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(10px, 1fr)); /* Flexible grid */
-  grid-template-columns: repeat(auto-fill, minmax(10px, 1fr)); /* Flexible grid */
+  grid-template-rows: repeat(40, 1fr);
+  grid-template-columns: repeat(40, 1fr);
   position: absolute;
-  transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg);
+  transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
 }
 
-#container:before, #container:after {
+#container:after,
+#container:before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0px;
   pointer-events: none;
 }
 

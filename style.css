@@ -2,13 +2,12 @@
   --red-rgb: 255 102 196;
   --blue-rgb: 81 112 255;
   --green-rgb: 121 110 242;
-  
   --background-rgb: 0 0 0;
 }
 
 body {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,25 +24,26 @@ body {
 
 #logoplane {
   position: absolute;
-  transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
+  transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg);
   pointer-events: none;
+  width: 30vw; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
 }
 
 #container {
-  width: 140rem;
+  width: 80vw; /* Adjust as needed */
   aspect-ratio: 1;
   display: grid;
-  grid-template-rows: repeat(40, 1fr);
-  grid-template-columns: repeat(40, 1fr);
+  grid-template-rows: repeat(auto-fill, minmax(10px, 1fr)); /* Flexible grid */
+  grid-template-columns: repeat(auto-fill, minmax(10px, 1fr)); /* Flexible grid */
   position: absolute;
-  transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
+  transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg);
 }
 
-#container:after,
-#container:before {
+#container:before, #container:after {
   content: "";
   position: absolute;
-  inset: 0px;
+  inset: 0;
   pointer-events: none;
 }
 
@@ -60,60 +60,73 @@ body {
   background: radial-gradient(circle, transparent 25%, rgb(var(--background-rgb)) 80%);
 }
 
-.tile {  
-  border: 1px solid rgb(255 255 255 / 25%);
+.tile {
+  border: 1px solid rgba(255, 255, 255, 0.25);
   transition: background-color 1500ms;
 }
 
-.tile:hover, .tile:active {
+.tile:hover,
+.tile:active {
   transition-duration: 0ms;
 }
 
-.tile:nth-child(4n):hover, tile:nth-child(4n):active {
+.tile:nth-child(4n):hover,
+.tile:nth-child(4n):active {
   background-color: rgb(var(--red-rgb));
 }
 
-.tile:nth-child(4n + 1):hover, tile:nth-child(4n + 1):active {
+.tile:nth-child(4n + 1):hover,
+.tile:nth-child(4n + 1):active {
   background-color: rgb(var(--blue-rgb));
 }
 
-.tile:nth-child(4n + 2):hover, tile:nth-child(4n + 2):active {
+.tile:nth-child(4n + 2):hover,
+.tile:nth-child(4n + 2):active {
   background-color: rgb(var(--green-rgb));
 }
 
-.tile:nth-child(4n + 3):hover, tile:nth-child(4n + 3):active {
+.tile:nth-child(4n + 3):hover,
+.tile:nth-child(4n + 3):active {
   background-color: rgb(var(--green-rgb));
 }
 
-.tile:nth-child(7n):hover, tile:nth-child(7n):active {
+.tile:nth-child(7n):hover,
+.tile:nth-child(7n):active {
   background-color: rgb(var(--blue-rgb));
 }
 
-.tile:nth-child(7n + 3):hover, tile:nth-child(7n + 3):active {
+.tile:nth-child(7n + 3):hover,
+.tile:nth-child(7n + 3):active {
   background-color: rgb(var(--red-rgb));
 }
 
-.tile:nth-child(7n + 5):hover, tile:nth-child(7n + 5):active {
+.tile:nth-child(7n + 5):hover,
+.tile:nth-child(7n + 5):active {
   background-color: rgb(var(--red-rgb));
 }
 
-.tile:nth-child(7n + 6):hover, tile:nth-child(7n + 6):active {
+.tile:nth-child(7n + 6):hover,
+.tile:nth-child(7n + 6):active {
   background-color: rgb(var(--blue-rgb));
 }
 
-.tile:nth-child(11n + 1):hover, tile:nth-child(11n + 1):active {
+.tile:nth-child(11n + 1):hover,
+.tile:nth-child(11n + 1):active {
   background-color: rgb(var(--green-rgb));
 }
 
-.tile:nth-child(11n + 4):hover, tile:nth-child(11n + 4):active {
+.tile:nth-child(11n + 4):hover,
+.tile:nth-child(11n + 4):active {
   background-color: rgb(var(--blue-rgb));
 }
 
-.tile:nth-child(11n + 7):hover, tile:nth-child(11n + 7):active {
+.tile:nth-child(11n + 7):hover,
+.tile:nth-child(11n + 7):active {
   background-color: rgb(var(--red-rgb));
 }
 
-.tile:nth-child(11n + 10):hover, tile:nth-child(11n + 10):active {
+.tile:nth-child(11n + 10):hover,
+.tile:nth-child(11n + 10):active {
   background-color: rgb(var(--green-rgb));
 }
 
@@ -124,10 +137,10 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   position: absolute;
-  bottom: 0px;
-  left: 0px;
+  bottom: 2vw; /* Responsive */
+  left: 2vw; /* Responsive */
   z-index: 100;
-  padding: 1rem;
+  padding: 1vw; /* Responsive */
 }
 
 .meta-link {
@@ -138,12 +151,8 @@ body {
 
 .meta-link > :is(span, a) {
   font-family: "Inter", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.5vw; /* Responsive */
   color: white;
-}
-
-.meta-link > .label {
-  text-align: right;
 }
 
 .meta-link > a {
@@ -176,6 +185,22 @@ body {
 }
 
 .meta-link > a > i {
-  height: 1rem;
-  line-height: 1rem;
+  height: 2vw; /* Responsive */
+  line-height: 2vw; /* Responsive */
+}
+
+@media (max-width: 600px) {
+  #logoplane {
+    width: 50vw; /* Adjust as needed */
+  }
+
+  .meta-link > :is(span, a) {
+    font-size: 4vw; /* Adjust as needed */
+  }
+
+  #links {
+    bottom: 2vw; /* Adjust as needed */
+    left: 2vw; /* Adjust as needed */
+    padding: 2vw; /* Adjust as needed */
+  }
 }

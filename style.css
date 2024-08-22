@@ -31,17 +31,13 @@ body {
 }
 
 #container {
-  width: 100vw; /* Take up full viewport width */
-  height: 100vh; /* Take up full viewport height */
-  aspect-ratio: 1; /* Maintain a square aspect ratio */
+  width: 100vh;
+  aspect-ratio: 1 / 1;
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(0, 1fr));
-  grid-template-columns: repeat(auto-fill, minmax(0, 1fr));
+  grid-template-rows: repeat(40, 1fr);
+  grid-template-columns: repeat(40, 1fr);
   position: absolute;
-  top: 0;
-  left: 0;
   transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 #container:after,
@@ -67,8 +63,6 @@ body {
 
 .tile {
   border: 1px solid rgba(255, 255, 255, 0.25);
-  width: 3%;
-  aspect-ratio: 1;
   transition: background-color 1500ms;
   background-color: transparent; /* Ensure the background is transparent initially */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */

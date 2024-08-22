@@ -31,20 +31,19 @@ body {
 }
 
 #container {
-  width: 100vh;
-  aspect-ratio: 1 / 1;
+  width: 80vw; /* Adjust as needed */
+  aspect-ratio: 1;
   display: grid;
-  grid-template-rows: repeat(40, 1fr);
-  grid-template-columns: repeat(40, 1fr);
+  grid-template-rows: repeat(auto-fill, minmax(10px, 1fr)); /* Flexible grid */
+  grid-template-columns: repeat(auto-fill, minmax(10px, 1fr)); /* Flexible grid */
   position: absolute;
-  transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
+  transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg);
 }
 
-#container:after,
-#container:before {
+#container:before, #container:after {
   content: "";
   position: absolute;
-  inset: 0px;
+  inset: 0;
   pointer-events: none;
 }
 
@@ -64,8 +63,6 @@ body {
 .tile {
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: background-color 1500ms;
-  background-color: transparent; /* Ensure the background is transparent initially */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .tile:hover,

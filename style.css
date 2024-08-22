@@ -67,6 +67,8 @@ body {
 
 .tile {
   border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 3%;
+  aspect-ratio: 1;
   transition: background-color 1500ms;
   background-color: transparent; /* Ensure the background is transparent initially */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
